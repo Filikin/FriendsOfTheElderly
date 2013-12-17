@@ -1,0 +1,4 @@
+<apex:page standardController="Lead" extensions="AddDefaultValuesToLeadContoller" showHeader="true" action="{!addDefaultOrg}">
+<h1>Error</h1>
+If you can see this, something has gone wrong with the AddDefaultValuesToLeadContoller
+</apex:page>

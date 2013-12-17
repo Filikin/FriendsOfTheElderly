@@ -1,0 +1,22 @@
+<apex:page standardController="Program_Session__c" extensions="ProgramAttendanceListView">
+
+	<h2>Session Details: {!Program_Session__c.Programme_Event__r.Name} </h2>
+	<br/>
+	<h3>Session Date: <apex:outputText value="{0,date, d MMM yyyy}"><apex:param value="{!Program_Session__c.Session_Date__c}" /></apex:outputText></h3>
+	<apex:form >
+		<apex:pageBlock title="Attendances" id="youngPeopleList">
+                <apex:pageBlockTable value="{!AttendanceList}" var="attendance">
+                    <apex:column headerValue="Name">
+                        <apex:outputText value="{!attendance.Young_Person_name__c}"/>
+                     </apex:column>
+                    <apex:column headerValue="Click to mark as Attended"  style="width:150px">
+                        <apex:inputCheckbox value="{!attendance.Attended__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Comment" >
+                        <apex:inputText value="{!attendance.Comment__c}" style="width:300px"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:commandButton action="{!submit}" value="Save Changes"/>
+    </apex:form>
+</apex:page>

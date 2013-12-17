@@ -1,0 +1,15 @@
+<apex:page standardController="Contact" extensions="ViewAllNotes">
+    <apex:form >
+        <apex:pageBlock id="thePageBlock" title="Notes for {!Contact.Name}">
+            <apex:commandButton title="New" value="New Note" action="{!NewNote}"/>
+            <apex:pageBlock title="Notes" >
+	            <apex:pageBlockTable value="{!ContactNotes}" var="n" >
+	                <apex:column headerValue="Note"><apex:outputLink value="/{!n.id}" id="theLink"><b>{!n.Title}</b></apex:outputLink> {!n.Body}</apex:column>
+	                <apex:column headerValue="Created By" value="{!n.CreatedBy.Name}"/>
+	                <apex:column headerValue="Created Date" value="{!n.CreatedDate}"/>
+	                <apex:column headerValue="IsPrivate" value="{!n.IsPrivate}"/>
+	            </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
